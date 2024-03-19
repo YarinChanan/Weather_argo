@@ -51,7 +51,7 @@ jobs:
         run: |
           git config --global user.name "${{ env.USER_NAME }}"
           git config --global user.email "${{ env.EMAIL }}"
-          sed -i "s|image:.*\$|image: ${{ env.IMAGE_NAME }}:${{ github.run_number }}|g" deployment.yaml
+          sed -i "s|image:.*\$|image: ${{ env.IMAGE_NAME }}:${{ github.run_number }}|g" weatherapp_deployment.yaml
           git add -A
           git commit -m "${{ env.COMMIT }}"
           git push
