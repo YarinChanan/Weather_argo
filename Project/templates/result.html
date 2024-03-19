@@ -1,0 +1,43 @@
+<!DOCTYPE html> 
+<!-- used html bootstrap -->
+<html>
+    <head>
+        <!-- links: css online and css created (Bootstraps)-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../static/CSS/result.css">
+
+    </head>
+    <body>
+    <div class="container">
+        <div class="card">
+            <div class="row">
+                <div class="col-9">
+                    <div class="row top">
+                        <!-- Jinja -prints content between cutly brackets-->
+                        <div class="col" name="header">{{list[0].resolvedAddress}}</div>
+                        <div class="col">Tempature</div>
+                        <div class="col">{{list[0].date}}</div>
+                    
+                    </div>
+                    <div class="row">
+                        <div class="col-7 temp">{{list[0].temp}}&deg;</div>
+                        <div class="col-5 time"><p>Day: {{list[0].day_temp}}&deg</p><p>Humidity: {{list[0].humidity}}%</p><p>Night: {{list[0].night_temp}}&deg</p></div>
+                    </div>
+                    <div class="row bottom">
+                        <!-- Jinja -statments without output-->
+                        {% for item in list %}
+                        <div class="col">
+                            <div class="date">{{ item.date }}</div>
+                            <div class="datedetails">D: {{item.day_temp}}&deg;</div>
+                            <div class="datedetails">N: {{item.night_temp}}&deg;</div>
+                            <div class="datedetails">H:{{item.humidity}}%;</div>
+                        </div>
+                        {% endfor %}
+                    </div> 
+                </div>
+            </div>
+        </div>
+        <a href="/"><button>Home</button></a>
+    </div>
+</body>
+</html>
