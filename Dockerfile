@@ -1,8 +1,8 @@
 FROM python:slim as build
 
-COPY ./Project/requirements.txt .
-
-RUN pip install -r requirements.txt
+RUN pip install requests
+RUN pip install gunicorn
+RUN pip install flask
 
 #Stage two - creating second image: deploy
 
@@ -16,4 +16,5 @@ COPY ./Project /Weather_app
 
 EXPOSE 5000
 
-CMD python app.py
+CMD gunicorn --bind 0.0.0.0:5000 app:app
+

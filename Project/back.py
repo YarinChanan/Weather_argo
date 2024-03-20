@@ -28,3 +28,4 @@ def json_creation(city):
 if __name__=="__main__":
     json_creation("Tel aviv")
 
+
